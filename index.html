@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Multi Lang Translater</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 2rem; }
+    header { margin-bottom: 1.5rem; }
+    textarea { width: 100%; max-width: 800px; height: 140px; }
+    select, button, input { padding: 0.5rem; margin: 0.25rem 0; }
+    .row { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .out { white-space: pre-wrap; border: 1px solid #ddd; padding: 0.75rem; min-height: 120px; max-width: 800px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Multi Lang Translater</h1>
+    <p>A minimal starter page. Replace with your logic or API calls later.</p>
+  </header>
+
+  <section>
+    <label for="srcText">Source text</label><br />
+    <textarea id="srcText" placeholder="Type text to translate..."></textarea>
+  </section>
+
+  <section class="row">
+    <div>
+      <label for="srcLang">From</label><br />
+      <select id="srcLang">
+        <option value="auto" selected>Auto-detect</option>
+        <option value="en">English</option>
+        <option value="es">Spanish</option>
+        <option value="fr">French</option>
+        <option value="de">German</option>
+        <option value="zh">Chinese</option>
+        <option value="hi">Hindi</option>
+      </select>
+    </div>
+    <div>
+      <label for="tgtLang">To</label><br />
+      <select id="tgtLang">
+        <option value="en" selected>English</option>
+        <option value="es">Spanish</option>
+        <option value="fr">French</option>
+        <option value="de">German</option>
+        <option value="zh">Chinese</option>
+        <option value="hi">Hindi</option>
+      </select>
+    </div>
+  </section>
+
+  <div class="row">
+    <button id="translateBtn">Translate</button>
+    <input id="apiKey" type="password" placeholder="Optional: API key (if using a service)" />
+  </div>
+
+  <h2>Output</h2>
+  <div id="out" class="out" aria-live="polite"></div>
+
+  <script>
+    // Placeholder client-side demo translator (echoes text). Replace with real API call.
+    const btn = document.getElementById('translateBtn');
+    btn.addEventListener('click', async () => {
+      const text = document.getElementById('srcText').value.trim();
+      const from = document.getElementById('srcLang').value;
+      const to = document.getElementById('tgtLang').value;
+      const out = document.getElementById('out');
+      if (!text) { out.textContent = 'Please enter some text.'; return; }
+      // Simulated translation for initial commit
+      out.textContent = `[${from} -> ${to}] ` + text;
+    });
+  </script>
+</body>
+</html>
